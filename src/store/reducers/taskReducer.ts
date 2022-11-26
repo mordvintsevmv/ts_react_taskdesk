@@ -1,10 +1,21 @@
+import {tasksReserve} from "../../data/tasks";
+import {ITask} from "../../types/task";
+
 /*
 
    INITIAL STATE
 
  */
-const initial_state = {
+interface taskState {
+    tasks: ITask[],
+    loading: boolean,
+    error: string | null
+}
 
+const initial_state: taskState = {
+    tasks: tasksReserve,
+    loading: false,
+    error: null
 }
 
 

@@ -1,4 +1,4 @@
-import React, {DragEventHandler, FC} from "react";
+import React, {FC} from "react";
 import {ITask} from "../../../types/task";
 
 // @ts-ignore
@@ -11,19 +11,8 @@ interface TaskItemProps {
 
 const TaskItem: FC<TaskItemProps> = ({task}) => {
 
-    const dropHandler = (ev: React.DragEvent<HTMLDivElement>): void => {
-        ev.preventDefault()
-        console.log(ev)
-    }
-
-    const dragHandler = (ev: React.DragEvent<HTMLDivElement>): void => {
-        console.log("+")
-    }
-
-
-
     return(
-        <div draggable={true}
+        <div
              className={
             task.priority === 2 ? `${style.task_wrapper} ${style.high_priority}` :
                 task.priority === 1 ? `${style.task_wrapper} ${style.middle_priority}` :
@@ -31,9 +20,6 @@ const TaskItem: FC<TaskItemProps> = ({task}) => {
                         `${style.task_wrapper}`
 
              }
-
-             onDrag={dragHandler}
-
         >
 
             <div className={style.top_part}>

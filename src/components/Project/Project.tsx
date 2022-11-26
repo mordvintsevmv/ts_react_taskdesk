@@ -1,47 +1,40 @@
-import React, {DragEventHandler, FC} from "react";
+import React, {FC} from "react";
 import {useParams} from "react-router-dom";
 import {ITask} from "../../types/task";
-import {tasksReserve} from "../../data/tasks";
 import TaskItem from "./TaskItem/TaskItem";
 
 // @ts-ignore
 import style from "./Project.module.css"
+import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 const Project: FC = () => {
     const {projectID} = useParams()
+    const {tasks, loading, error} = useTypedSelector(state => state.taskReducer)
 
-    const tasks: ITask[] = tasksReserve.filter(project => project.projectID === Number(projectID))
+    const projectTasks: ITask[] = tasks.filter(task => task.projectID === Number(projectID))
 
-    const QueueTaskElements = tasks.map(task => {
+    const QueueTaskElements = projectTasks.map(task => {
         if (task.status === 0) {
-            return <TaskItem task={task}/>
-        }
+            return <TaskItem key={task.id} task={task}/>
+        } else {return null}
     })
 
-    const DevelopmentTaskElements = tasks.map(task => {
+    const DevelopmentTaskElements = projectTasks.map(task => {
         if (task.status === 1) {
-            return <TaskItem task={task}/>
-        }
+            return <TaskItem key={task.id} task={task}/>
+        } else {return null}
     })
 
-    const DoneTaskElements = tasks.map(task => {
+    const DoneTaskElements = projectTasks.map(task => {
         if (task.status === 2) {
-            return <TaskItem task={task}/>
-        }
+            return <TaskItem key={task.id} task={task}/>
+        } else {return null}
     })
-
-    const dropHandler = (ev: React.DragEvent<HTMLDivElement>): void => {
-        ev.preventDefault()
-        console.log(ev)
-    }
-
-
 
     return (
         <div>
             <div className={style.desk_wrapper}>
-                <div draggable className={style.queue} onDrop={dropHandler} onDragEnd={dropHandler}
-                >
+                <div className={style.queue}>
                     <div className={style.queue_title}>
                         QUEUE
                     </div>
