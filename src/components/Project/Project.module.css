@@ -1,0 +1,41 @@
+.desk_wrapper{
+    padding: 15px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 15px;
+
+}
+
+.desk_wrapper > div {
+    padding: 10px;
+    border-radius: 10px;
+
+}
+
+.queue{
+    background-color: #ececec;
+}
+
+.development{
+    background-color: #ffffe1;
+}
+
+.done{
+    background-color: #e9ffed;
+}
+
+.queue_title{
+    text-align: center;
+    font-weight: bold;
+}
+
+.development_title{
+    text-align: center;
+    font-weight: bold;
+}
+
+.done_title{
+    text-align: center;
+    font-weight: bold;
+}

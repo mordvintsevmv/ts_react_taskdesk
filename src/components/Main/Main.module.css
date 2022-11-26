@@ -1,0 +1,8 @@
+.project_elements{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    grid-gap: 15px;
+}

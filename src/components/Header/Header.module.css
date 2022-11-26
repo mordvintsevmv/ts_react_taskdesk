@@ -1,0 +1,23 @@
+.header_wrapper{
+    color: black;
+    position: relative;
+    height: 30px;
+    background-color: transparent;
+
+}
+.button_home{
+    margin-top: 3px;
+    margin-left: 5px;
+
+    cursor: pointer;
+    width: 22px;
+    height: 25px;
+}
+
+.title{
+    position: absolute;
+    top: 3px;
+    left: 45px;
+    font-weight: bold;
+    font-size: 23px;
+}
