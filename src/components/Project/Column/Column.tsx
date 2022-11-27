@@ -15,7 +15,7 @@ const Column: FC<ColumnProps> = ({id, title, taskIDs, tasks}) => {
 
     const taskElements = tasks.map(task => {
         if (taskIDs.includes(task.id)) {
-            return <TaskItem task={task}/>
+            return <TaskItem task={task} key={task.id}/>
         } else
             return null
     })

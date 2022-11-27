@@ -1,3 +1,8 @@
+.projects_wrapper_blur{
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+}
+
 .project_elements {
     display: grid;
     grid-template-columns: repeat(auto-fill, 300px);
@@ -5,4 +10,29 @@
     padding-right: 15px;
     padding-top: 15px;
     grid-gap: 15px;
+}
+
+
+
+.button_add {
+    position: fixed;
+
+    bottom: 0;
+    right: 0;
+
+    cursor: pointer;
+
+}
+
+.button_plus {
+    position: fixed;
+
+    color:white;
+    font-weight: bold;
+    font-size: 24px;
+
+    bottom: 42px;
+    right: 62px;
+
+
 }
