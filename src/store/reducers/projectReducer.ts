@@ -49,10 +49,10 @@ type projectActions = FetchProjectAction
     REDUCER
 
  */
-export const projectReducer = (state = initial_state, action:projectActions) => {
+export const projectReducer = (state = initial_state, action: projectActions) => {
     switch (action.type) {
 
-        case(projectActionTypes.FETCH_PROJECTS):{
+        case(projectActionTypes.FETCH_PROJECTS): {
             return {
                 ...state,
                 loading: true

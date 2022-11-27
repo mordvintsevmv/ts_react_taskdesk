@@ -1,0 +1,9 @@
+.title {
+    text-align: center;
+}
+
+.column_wrapper {
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 0 0 6px -3px;
+}

@@ -11,15 +11,15 @@ interface TaskItemProps {
 
 const TaskItem: FC<TaskItemProps> = ({task}) => {
 
-    return(
+    return (
         <div
-             className={
-            task.priority === 2 ? `${style.task_wrapper} ${style.high_priority}` :
-                task.priority === 1 ? `${style.task_wrapper} ${style.middle_priority}` :
-                    task.priority === 0 ? `${style.task_wrapper} ${style.low_priority}` :
-                        `${style.task_wrapper}`
+            className={
+                task.priority === 2 ? `${style.task_wrapper} ${style.high_priority}` :
+                    task.priority === 1 ? `${style.task_wrapper} ${style.middle_priority}` :
+                        task.priority === 0 ? `${style.task_wrapper} ${style.low_priority}` :
+                            `${style.task_wrapper}`
 
-             }
+            }
         >
 
             <div className={style.top_part}>

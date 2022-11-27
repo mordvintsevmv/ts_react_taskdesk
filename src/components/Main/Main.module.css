@@ -1,4 +1,4 @@
-.project_elements{
+.project_elements {
     display: grid;
     grid-template-columns: repeat(auto-fill, 300px);
     padding-left: 15px;

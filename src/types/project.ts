@@ -1,3 +1,5 @@
+import {IColumn} from "./column";
+
 export interface IProject {
     id: number,
     title: string,
@@ -5,4 +7,5 @@ export interface IProject {
     date_created: string,
     date_finished: string | null,
     work_time: string,
+    columns: IColumn[]
 }

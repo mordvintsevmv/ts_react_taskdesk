@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom";
 // @ts-ignore
 import home from "../../img/home.png"
 
-const Header:FC = () => {
+const Header: FC = () => {
 
     const navigate = useNavigate()
 
@@ -13,10 +13,10 @@ const Header:FC = () => {
         navigate("/")
     }
 
-    return(
+    return (
         <div className={style.header_wrapper}>
 
-            <span  onClick={homeButtonHandler}>
+            <span onClick={homeButtonHandler}>
                 <img src={home} alt={"home"} className={style.button_home}/>
             </span>
 

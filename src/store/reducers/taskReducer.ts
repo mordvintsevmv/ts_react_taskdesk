@@ -48,7 +48,7 @@ type taskActions = FetchTaskAction
     REDUCER
 
  */
-export const taskReducer = (state = initial_state, action:taskActions) => {
+export const taskReducer = (state = initial_state, action: taskActions) => {
     switch (action.type) {
         default:
             return state

@@ -16,8 +16,7 @@
     "formik": "^2.2.9",
     "gh-pages": "^4.0.0",
     "react": "^18.2.0",
-    "react-dnd": "^16.0.1",
-    "react-dnd-html5-backend": "^16.0.1",
+    "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.3",
@@ -55,6 +54,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-beautiful-dnd": "^13.1.2",
     "typescript-plugin-css-modules": "^3.4.0"
   }
 }

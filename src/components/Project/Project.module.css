@@ -1,4 +1,4 @@
-.desk_wrapper{
+.desk_wrapper {
     padding: 15px;
 
     display: grid;
@@ -13,29 +13,29 @@
 
 }
 
-.queue{
+.queue {
     background-color: #ececec;
 }
 
-.development{
+.development {
     background-color: #ffffe1;
 }
 
-.done{
+.done {
     background-color: #e9ffed;
 }
 
-.queue_title{
+.queue_title {
     text-align: center;
     font-weight: bold;
 }
 
-.development_title{
+.development_title {
     text-align: center;
     font-weight: bold;
 }
 
-.done_title{
+.done_title {
     text-align: center;
     font-weight: bold;
 }
