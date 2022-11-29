@@ -1,16 +1,15 @@
-import {FC} from "react";
+import React, {FC, PropsWithChildren} from "react";
 // @ts-ignore
-import style from "./AddWindow.module.css"
-import AddForm from "./AddForm";
+import style from "./Window.module.css"
 
-interface AddWindowProps {
-    setAddMode: any
+interface WindowProps {
+    setWindow: React.Dispatch<React.SetStateAction<boolean>>,
 }
 
-const AddWindow: FC<AddWindowProps> = ({setAddMode}) => {
+const Window: FC<PropsWithChildren<WindowProps>> = ({setWindow, children}) => {
 
     const closeClickHandler = () => {
-        setAddMode(false)
+        setWindow(false)
     }
 
     return (
@@ -25,7 +24,7 @@ const AddWindow: FC<AddWindowProps> = ({setAddMode}) => {
                     x
                 </div>
 
-                <AddForm />
+                {children}
 
             </div>
         </>
@@ -33,4 +32,4 @@ const AddWindow: FC<AddWindowProps> = ({setAddMode}) => {
     )
 }
 
-export default AddWindow
+export default Window

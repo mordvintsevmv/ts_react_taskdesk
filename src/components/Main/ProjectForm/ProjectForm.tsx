@@ -1,7 +1,7 @@
 import {FC} from "react";
 import {Field, Form, Formik} from "formik";
 
-const AddForm: FC = () => {
+const ProjectForm: FC = () => {
     return (
         <div>
             <Formik
@@ -38,4 +38,4 @@ const AddForm: FC = () => {
     )
 }
 
-export default AddForm
+export default ProjectForm

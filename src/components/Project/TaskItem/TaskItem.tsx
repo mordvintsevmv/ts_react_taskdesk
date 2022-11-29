@@ -5,11 +5,12 @@ import {ITask} from "../../../types/task";
 import style from "./TaskItem.module.css"
 
 interface TaskItemProps {
-    task: ITask
+    task: ITask,
 }
 
 
 const TaskItem: FC<TaskItemProps> = ({task}) => {
+
 
     return (
         <div
@@ -20,7 +21,9 @@ const TaskItem: FC<TaskItemProps> = ({task}) => {
                             `${style.task_wrapper}`
 
             }
+
         >
+
 
             <div className={style.top_part}>
 

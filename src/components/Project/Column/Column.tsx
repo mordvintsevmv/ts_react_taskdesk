@@ -8,7 +8,7 @@ interface ColumnProps {
     id: number,
     title: string,
     taskIDs: number[],
-    tasks: ITask[]
+    tasks: ITask[],
 }
 
 const Column: FC<ColumnProps> = ({id, title, taskIDs, tasks}) => {

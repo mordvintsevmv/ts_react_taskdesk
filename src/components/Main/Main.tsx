@@ -4,7 +4,8 @@ import ProjectItem from "./ProjectItem/ProjectItem";
 // @ts-ignore
 import style from "./Main.module.css"
 import {NavLink} from "react-router-dom";
-import AddWindow from "./AddWindow/AddWindow";
+import Window from "../Window/Window";
+import ProjectForm from "./ProjectForm/ProjectForm";
 
 const Main: FC = () => {
 
@@ -26,7 +27,7 @@ const Main: FC = () => {
     return (
         <div>
 
-            {addMode && <AddWindow setAddMode={setAddMode}/>}
+            {addMode && <Window children={<ProjectForm/>} setWindow={setAddMode}/>}
 
             <div className={addMode ? `${style.projects_wrapper} ${style.projects_wrapper_blur}` : `${style.projects_wrapper}`}>
                 <div className={style.project_elements}>

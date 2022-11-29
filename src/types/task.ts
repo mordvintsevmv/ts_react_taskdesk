@@ -2,6 +2,7 @@ import {IComment} from "./comment";
 
 export interface ITask {
     id: number,
+    parentID: number | null,
     projectID: number,
     title: string,
     description: string,

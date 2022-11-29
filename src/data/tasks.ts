@@ -3,6 +3,7 @@ import {ITask} from "../types/task";
 export const tasksReserve: ITask[] = [
     {
         id: 0,
+        parentID: null,
         projectID: 0,
         title: "Task",
         description: "Description",
@@ -20,6 +21,7 @@ export const tasksReserve: ITask[] = [
 
     {
         id: 1,
+        parentID: null,
         projectID: 0,
         title: "Task",
         description: "Description",
@@ -37,6 +39,7 @@ export const tasksReserve: ITask[] = [
 
     {
         id: 2,
+        parentID: null,
         projectID: 0,
         title: "Task",
         description: "Description",
@@ -61,6 +64,7 @@ export const tasksReserve: ITask[] = [
 
     {
         id: 3,
+        parentID: null,
         projectID: 1,
         title: "Task",
         description: "Description",
@@ -85,6 +89,7 @@ export const tasksReserve: ITask[] = [
 
     {
         id: 4,
+        parentID: null,
         projectID: 1,
         title: "Task",
         description: "Description",
@@ -109,6 +114,7 @@ export const tasksReserve: ITask[] = [
 
     {
         id: 5,
+        parentID: null,
         projectID: 1,
         title: "Task",
         description: "Description",
@@ -133,6 +139,7 @@ export const tasksReserve: ITask[] = [
 
     {
         id: 6,
+        parentID: null,
         projectID: 2,
         title: "Task",
         description: "Description",
@@ -157,6 +164,7 @@ export const tasksReserve: ITask[] = [
 
     {
         id: 7,
+        parentID: null,
         projectID: 2,
         title: "Task",
         description: "Description",
@@ -181,6 +189,7 @@ export const tasksReserve: ITask[] = [
 
     {
         id: 8,
+        parentID: null,
         projectID: 2,
         title: "Task",
         description: "Description",
@@ -205,6 +214,7 @@ export const tasksReserve: ITask[] = [
 
     {
         id: 9,
+        parentID: null,
         projectID: 3,
         title: "Task",
         description: "Description",
@@ -229,6 +239,7 @@ export const tasksReserve: ITask[] = [
 
     {
         id: 10,
+        parentID: null,
         projectID: 3,
         title: "Task",
         description: "Description",
@@ -253,6 +264,7 @@ export const tasksReserve: ITask[] = [
 
     {
         id: 11,
+        parentID: null,
         projectID: 3,
         title: "Task",
         description: "Description",
@@ -277,6 +289,7 @@ export const tasksReserve: ITask[] = [
 
     {
         id: 12,
+        parentID: null,
         projectID: 4,
         title: "Task",
         description: "Description",
@@ -301,6 +314,7 @@ export const tasksReserve: ITask[] = [
 
     {
         id: 13,
+        parentID: null,
         projectID: 4,
         title: "Task",
         description: "Description",
@@ -325,6 +339,7 @@ export const tasksReserve: ITask[] = [
 
     {
         id: 14,
+        parentID: null,
         projectID: 4,
         title: "Task",
         description: "Description",

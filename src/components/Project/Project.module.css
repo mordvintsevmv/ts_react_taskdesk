@@ -1,9 +1,13 @@
 .desk_wrapper {
     padding: 15px;
-
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 15px;
+}
+
+.desk_wrapper_blur {
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
 
 }
 
@@ -38,4 +42,27 @@
 .done_title {
     text-align: center;
     font-weight: bold;
+}
+
+.button_add {
+    position: fixed;
+
+    bottom: 0;
+    right: 0;
+
+    cursor: pointer;
+
+}
+
+.button_plus {
+    position: fixed;
+
+    color:white;
+    font-weight: bold;
+    font-size: 24px;
+
+    bottom: 50px;
+    right: 70px;
+
+
 }
