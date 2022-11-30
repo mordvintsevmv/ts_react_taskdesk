@@ -1,19 +1,27 @@
-import {FC} from "react";
-import {Field, Form, Formik} from "formik";
+import React, {FC} from "react";
+import {Field, Form, Formik, FormikValues} from "formik";
 import {useDispatch} from "react-redux";
 import {projectActionTypes} from "../../../store/reducers/projectReducer";
 
-const ProjectForm: FC = () => {
+interface ProjectFormProps {
+    setAddMode:  React.Dispatch<React.SetStateAction<boolean>>,
+}
+
+const ProjectForm: FC<ProjectFormProps> = ({setAddMode}) => {
 
     const dispatch = useDispatch()
+
+
+    const submitHandle = (values: FormikValues) => {
+        dispatch({type: projectActionTypes.CREATE_PROJECT, payload: values})
+        setAddMode(false)
+    }
 
     return (
         <div>
             <Formik
-                initialValues={{id: 10, title: "", description: "", date_created:"11", date_finished:"11", work_time:"1", columns:null}}
-                onSubmit={(values) => {
-                    dispatch({type: projectActionTypes.CREATE_PROJECT, payload: values})
-                }}
+                initialValues={{title: "", description: ""}}
+                onSubmit={(values) => submitHandle(values)}
             >
 
                 <Form>

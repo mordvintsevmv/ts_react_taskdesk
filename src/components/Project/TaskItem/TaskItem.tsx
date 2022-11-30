@@ -10,6 +10,7 @@ import open_button from "../../../img/open.png";
 import edit_button from "../../../img/edit.png";
 // @ts-ignore
 import trash_button from "../../../img/trash.png";
+import {getDateCustom, getWorkTime} from "../../../functions/dateFunctions";
 
 interface TaskItemProps {
     task: ITask,
@@ -35,9 +36,7 @@ const TaskItem: FC<TaskItemProps> = ({task}) => {
                             `${style.task_wrapper}`
 
             }
-
         >
-
 
             <div className={style.top_part}>
 
@@ -64,16 +63,16 @@ const TaskItem: FC<TaskItemProps> = ({task}) => {
 
             <div className={style.date}>
                 <div className={style.date_created}>
-                    {task.date_created}
+                    {getDateCustom(task.date_created)}
                 </div>
 
                 <div className={style.date_finished}>
-                    {task.date_finished ? task.date_finished : "--.--.----"}
+                    {task.date_finished ? getDateCustom(task.date_finished) : "--.--.----"}
                 </div>
             </div>
 
             <div className={style.work_time}>
-                In work: {task.work_time}
+                In work: {getWorkTime(task.date_created, task.date_finished)}
             </div>
 
             <NavLink to={``}>

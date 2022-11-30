@@ -24,7 +24,8 @@ export enum projectActionTypes {
     FETCH_PROJECTS = "FETCH_PROJECTS",
     CREATE_PROJECT = "CREATE_PROJECT",
     DELETE_PROJECT = "DELETE_PROJECT",
-    EDIT_PROJECT = "EDIT_PROJECT"
+    EDIT_PROJECT = "EDIT_PROJECT",
+    FINISH_PROJECT = "FINISH_PROJECT"
 }
 
 interface FetchProjectAction {
@@ -33,7 +34,7 @@ interface FetchProjectAction {
 
 interface CreateProjectAction {
     type: projectActionTypes.CREATE_PROJECT,
-    payload: IProject
+    payload: any
 }
 
 interface DeleteProjectAction {
@@ -46,7 +47,12 @@ interface EditProjectAction {
     payload: IProject
 }
 
-export type projectActions = FetchProjectAction | CreateProjectAction | DeleteProjectAction | EditProjectAction
+interface FinishProjectAction {
+    type: projectActionTypes.FINISH_PROJECT,
+    payload: number
+}
+
+export type projectActions = FetchProjectAction | CreateProjectAction | DeleteProjectAction | EditProjectAction | FinishProjectAction
 
 
 /*
@@ -65,11 +71,38 @@ export const projectReducer = (state = initial_state, action: projectActions) =>
         }
 
         case(projectActionTypes.CREATE_PROJECT): {
+
+            const maxId = state.projects.reduce((max, item) => item.id > max ? item.id : max, 0);
+            const project: IProject = {
+                id: maxId+1,
+                title: action.payload.title,
+                description: action.payload.description,
+                date_created: (new Date()).toString(),
+                date_finished: null,
+                columns: [
+                    {
+                        id: 0,
+                        title: "Queue",
+                        taskIDs: []
+                    },
+                    {
+                        id: 1,
+                        title: "Development",
+                        taskIDs: []
+                    },
+                    {
+                        id: 2,
+                        title: "Done",
+                        taskIDs: []
+                    },
+                ]
+            }
+
             return {
                 ...state,
                 projects: [
                     ...state.projects,
-                    action.payload
+                    project
                 ]
             }
         }
@@ -80,6 +113,24 @@ export const projectReducer = (state = initial_state, action: projectActions) =>
                 projects: [...state.projects.filter(project => project.id !== action.payload)]
             }
         }
+
+        case(projectActionTypes.FINISH_PROJECT): {
+            const projectIndex = state.projects.findIndex(project => project.id === action.payload)
+            const project = state.projects[projectIndex]
+            project.date_finished = (new Date()).toString()
+
+            return {
+                ...state,
+                projects: [...state.projects.map(project => {
+                    if (project.id === action.payload) {
+                        project.date_finished = new Date().toString()
+                    }
+                    return project
+                })]
+
+            }
+        }
+
 
         case(projectActionTypes.EDIT_PROJECT): {
             return {

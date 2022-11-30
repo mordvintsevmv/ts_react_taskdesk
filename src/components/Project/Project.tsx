@@ -20,9 +20,11 @@ const Project: FC = () => {
     const {projects} = useTypedSelector(state => state.projectReducer)
 
     const [addMode, setAddMode] = useState<boolean>(false)
-    const [detailMode, setDetailMode] = useState(false)
+    const [detailMode, setDetailMode] = useState<boolean>(false)
 
-    const columns: IColumn[] = projects[Number(projectID)].columns
+    const projectIndex: number = projects.findIndex(project => project.id === Number(projectID))
+
+    const columns: IColumn[] = projects[projectIndex].columns
     const columnElements = columns.map(column =>
         <Column key={column.id} id={column.id} title={column.title}
                 taskIDs={column.taskIDs} tasks={tasks}/>
@@ -41,6 +43,7 @@ const Project: FC = () => {
 
             <div
                 className={(addMode || detailMode) ? `${style.desk_wrapper} ${style.desk_wrapper_blur}` : `${style.desk_wrapper}`}>
+
                 {columnElements}
 
                 <div className={style.button_add} onClick={addClickHandler}>

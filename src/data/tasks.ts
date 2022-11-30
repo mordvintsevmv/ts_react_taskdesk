@@ -9,7 +9,6 @@ export const tasksReserve: ITask[] = [
         description: "Description",
         date_created: "25.11.2022",
         date_finished: "26.11.2022",
-        work_time: "NN",
         priority: 2,
         status: 0,
         comments: [{
@@ -27,7 +26,6 @@ export const tasksReserve: ITask[] = [
         description: "Description",
         date_created: "25.11.2022",
         date_finished: "26.11.2022",
-        work_time: "NN",
         priority: 1,
         status: 1,
         comments: [{
@@ -45,7 +43,6 @@ export const tasksReserve: ITask[] = [
         description: "Description",
         date_created: "25.11.2022",
         date_finished: "26.11.2022",
-        work_time: "NN",
         priority: 0,
         status: 2,
         comments: [
@@ -70,7 +67,6 @@ export const tasksReserve: ITask[] = [
         description: "Description",
         date_created: "25.11.2022",
         date_finished: "26.11.2022",
-        work_time: "NN",
         priority: 0,
         status: 2,
         comments: [
@@ -95,7 +91,6 @@ export const tasksReserve: ITask[] = [
         description: "Description",
         date_created: "25.11.2022",
         date_finished: "26.11.2022",
-        work_time: "NN",
         priority: 0,
         status: 2,
         comments: [
@@ -120,7 +115,6 @@ export const tasksReserve: ITask[] = [
         description: "Description",
         date_created: "25.11.2022",
         date_finished: "26.11.2022",
-        work_time: "NN",
         priority: 0,
         status: 2,
         comments: [
@@ -145,7 +139,6 @@ export const tasksReserve: ITask[] = [
         description: "Description",
         date_created: "25.11.2022",
         date_finished: "26.11.2022",
-        work_time: "NN",
         priority: 0,
         status: 2,
         comments: [
@@ -170,7 +163,6 @@ export const tasksReserve: ITask[] = [
         description: "Description",
         date_created: "25.11.2022",
         date_finished: "26.11.2022",
-        work_time: "NN",
         priority: 0,
         status: 2,
         comments: [
@@ -195,7 +187,6 @@ export const tasksReserve: ITask[] = [
         description: "Description",
         date_created: "25.11.2022",
         date_finished: "26.11.2022",
-        work_time: "NN",
         priority: 0,
         status: 2,
         comments: [
@@ -220,7 +211,6 @@ export const tasksReserve: ITask[] = [
         description: "Description",
         date_created: "25.11.2022",
         date_finished: "26.11.2022",
-        work_time: "NN",
         priority: 0,
         status: 2,
         comments: [
@@ -245,7 +235,6 @@ export const tasksReserve: ITask[] = [
         description: "Description",
         date_created: "25.11.2022",
         date_finished: "26.11.2022",
-        work_time: "NN",
         priority: 0,
         status: 2,
         comments: [
@@ -270,7 +259,6 @@ export const tasksReserve: ITask[] = [
         description: "Description",
         date_created: "25.11.2022",
         date_finished: "26.11.2022",
-        work_time: "NN",
         priority: 0,
         status: 2,
         comments: [
@@ -295,7 +283,6 @@ export const tasksReserve: ITask[] = [
         description: "Description",
         date_created: "25.11.2022",
         date_finished: "26.11.2022",
-        work_time: "NN",
         priority: 0,
         status: 2,
         comments: [
@@ -320,7 +307,6 @@ export const tasksReserve: ITask[] = [
         description: "Description",
         date_created: "25.11.2022",
         date_finished: "26.11.2022",
-        work_time: "NN",
         priority: 0,
         status: 2,
         comments: [
@@ -345,7 +331,6 @@ export const tasksReserve: ITask[] = [
         description: "Description",
         date_created: "25.11.2022",
         date_finished: "26.11.2022",
-        work_time: "NN",
         priority: 0,
         status: 2,
         comments: [

@@ -7,15 +7,11 @@ import {ITask} from "../../types/task";
 
  */
 interface taskState {
-    tasks: ITask[],
-    loading: boolean,
-    error: string | null
+    tasks: ITask[]
 }
 
 const initial_state: taskState = {
-    tasks: tasksReserve,
-    loading: false,
-    error: null
+    tasks: tasksReserve
 }
 
 
@@ -26,8 +22,9 @@ const initial_state: taskState = {
  */
 enum taskActionTypes {
     FETCH_TASKS = "FETCH_TASKS",
-    FETCH_TASKS_SUCCESS = "FETCH_TASKS_SUCCESS",
-    FETCH_TASKS_ERROR = "FETCH_TASKS_ERROR",
+    CREATE_TASK = "CREATE_TASK",
+    DELETE_TASK = "DELETE_TASK",
+    EDIT_TASK = "EDIT_TASK"
 }
 
 
@@ -40,7 +37,22 @@ interface FetchTaskAction {
     type: taskActionTypes.FETCH_TASKS,
 }
 
-type taskActions = FetchTaskAction
+interface CreateTaskAction {
+    type: taskActionTypes.CREATE_TASK,
+    payload: ITask
+}
+
+interface DeleteTaskAction {
+    type: taskActionTypes.DELETE_TASK,
+    payload: number
+}
+
+interface EditTaskAction {
+    type: taskActionTypes.EDIT_TASK,
+    payload: ITask
+}
+
+type taskActions = FetchTaskAction | CreateTaskAction | DeleteTaskAction | EditTaskAction
 
 
 /*
@@ -50,6 +62,42 @@ type taskActions = FetchTaskAction
  */
 export const taskReducer = (state = initial_state, action: taskActions) => {
     switch (action.type) {
+        case taskActionTypes.FETCH_TASKS: {
+            return {
+                ...state
+            }
+        }
+
+        case taskActionTypes.CREATE_TASK: {
+            return {
+                ...state,
+                tasks: [
+                    ...state.tasks,
+                    action.payload
+                ]
+            }
+        }
+
+        case taskActionTypes.DELETE_TASK: {
+            return {
+                ...state,
+                tasks: [...state.tasks.filter(task => task.id !== action.payload)]
+            }
+        }
+
+        case taskActionTypes.EDIT_TASK: {
+            return {
+                ...state,
+                tasks: [...state.tasks.map(task => {
+                    if (task.id === action.payload.id) {
+                        return action.payload
+                    } else {
+                        return task
+                    }
+                })]
+            }
+        }
+
         default:
             return state
     }

@@ -7,7 +7,6 @@ export const projectsReserve: IProject[] = [
         description: "Zero Test Project",
         date_created: "25.11.2022",
         date_finished: "26.11.2022",
-        work_time: "NN",
         columns: [
             {
                 id: 0,
@@ -33,7 +32,6 @@ export const projectsReserve: IProject[] = [
         description: "First Test Project",
         date_created: "25.11.2022",
         date_finished: "26.11.2022",
-        work_time: "NN",
         columns: [
             {
                 id: 0,
@@ -59,7 +57,6 @@ export const projectsReserve: IProject[] = [
         description: "Second Test Project",
         date_created: "25.11.2022",
         date_finished: "26.11.2022",
-        work_time: "NN",
         columns: [
             {
                 id: 0,
@@ -85,7 +82,6 @@ export const projectsReserve: IProject[] = [
         description: "Third Test Project",
         date_created: "25.11.2022",
         date_finished: "26.11.2022",
-        work_time: "NN",
         columns: [
             {
                 id: 0,
@@ -111,7 +107,6 @@ export const projectsReserve: IProject[] = [
         description: "Fourth Test Project",
         date_created: "25.11.2022",
         date_finished: "26.11.2022",
-        work_time: "NN",
         columns: [
             {
                 id: 0,

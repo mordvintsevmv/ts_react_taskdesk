@@ -6,6 +6,5 @@ export interface IProject {
     description: string,
     date_created: string,
     date_finished: string | null,
-    work_time: string,
     columns: IColumn[]
 }

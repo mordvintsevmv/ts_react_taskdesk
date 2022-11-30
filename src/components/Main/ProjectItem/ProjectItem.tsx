@@ -11,10 +11,14 @@ import trash_button from "../../../img/trash.png"
 import edit_button from "../../../img/edit.png"
 
 // @ts-ignore
+import done_button from "../../../img/done.png"
+
+// @ts-ignore
 import open_button from "../../../img/open.png"
 import {NavLink} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {projectActionTypes} from "../../../store/reducers/projectReducer";
+import {getDateCustom, getWorkTime} from "../../../functions/dateFunctions";
 
 interface ProjectItemProps {
     project: IProject
@@ -29,6 +33,10 @@ const ProjectItem: FC<ProjectItemProps> = ({project}) => {
     }
 
     const editClickHandler = () => {
+    }
+
+    const doneClickHandler = () => {
+        dispatch({type: projectActionTypes.FINISH_PROJECT, payload: project.id})
     }
 
 
@@ -50,7 +58,8 @@ const ProjectItem: FC<ProjectItemProps> = ({project}) => {
             </div>
 
             <div className={style.buttons}>
-                <img src={edit_button} alt={"edit"} className={style.edit_button} onClick={editClickHandler}/>
+                {project.date_finished ? null : <img src={done_button} alt={"done"} className={style.done_button} onClick={doneClickHandler}/>}
+                {project.date_finished ? null : <img src={edit_button} alt={"edit"} className={style.edit_button} onClick={editClickHandler}/>}
                 <img src={trash_button} alt={"delete"} className={style.trash_button} onClick={deleteClickHandler}/>
 
             </div>
@@ -61,16 +70,16 @@ const ProjectItem: FC<ProjectItemProps> = ({project}) => {
 
             <div className={style.date}>
                 <div className={style.date_created}>
-                    {project.date_created}
+                    {getDateCustom(project.date_created)}
                 </div>
 
                 <div className={style.date_finished}>
-                    {project.date_finished ? project.date_finished : "--.--.----"}
+                    {project.date_finished ? getDateCustom(project.date_finished) : "--.--.---- --:--"}
                 </div>
             </div>
 
             <div className={style.work_time}>
-                In work: {project.work_time}
+                In work: {getWorkTime(project.date_created, project.date_finished)}
             </div>
 
             <NavLink to={`/project/${project.id}`}>

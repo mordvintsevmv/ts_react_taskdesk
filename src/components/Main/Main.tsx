@@ -25,7 +25,7 @@ const Main: FC = () => {
     return (
         <div>
 
-            {addMode && <Window children={<ProjectForm/>} setWindow={setAddMode}/>}
+            {addMode && <Window children={<ProjectForm setAddMode={setAddMode}/>} setWindow={setAddMode}/>}
 
             <div
                 className={addMode ? `${style.projects_wrapper} ${style.projects_wrapper_blur}` : `${style.projects_wrapper}`}>

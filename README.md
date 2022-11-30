@@ -6,7 +6,6 @@
 
 - [ ] Add Edit Project feature
 - [ ] Add Warning when deleting project
-- [ ] Correct Create Project feature
 
 - [ ] Add Edit Task feature
 - [ ] Add Delete Task feature
@@ -18,3 +17,4 @@
 - [ ] Add Deleting child tasks
 - [ ] Add Edit child task
 
+- [ ] Add Change status feature

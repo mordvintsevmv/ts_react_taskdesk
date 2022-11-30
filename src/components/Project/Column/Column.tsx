@@ -28,6 +28,7 @@ const Column: FC<ColumnProps> = ({id, title, taskIDs, tasks}) => {
             </div>
 
             {taskElements}
+
         </div>
     )
 }
