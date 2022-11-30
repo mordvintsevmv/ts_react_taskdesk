@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/ts_react_taskdesk/static/css/main.1f03f0c2.css",
+    "main.js": "/ts_react_taskdesk/static/js/main.a3e4d291.js",
+    "static/media/home.png": "/ts_react_taskdesk/static/media/home.b52a5495991f2a510319.png",
+    "static/media/edit.png": "/ts_react_taskdesk/static/media/edit.0f46e2728eb984e21ce8.png",
+    "index.html": "/ts_react_taskdesk/index.html",
+    "main.1f03f0c2.css.map": "/ts_react_taskdesk/static/css/main.1f03f0c2.css.map",
+    "main.a3e4d291.js.map": "/ts_react_taskdesk/static/js/main.a3e4d291.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1f03f0c2.css",
+    "static/js/main.a3e4d291.js"
+  ]
+}
