@@ -3,6 +3,13 @@ import {ITask} from "../../../types/task";
 
 // @ts-ignore
 import style from "./TaskItem.module.css"
+import {NavLink} from "react-router-dom";
+// @ts-ignore
+import open_button from "../../../img/open.png";
+// @ts-ignore
+import edit_button from "../../../img/edit.png";
+// @ts-ignore
+import trash_button from "../../../img/trash.png";
 
 interface TaskItemProps {
     task: ITask,
@@ -11,6 +18,13 @@ interface TaskItemProps {
 
 const TaskItem: FC<TaskItemProps> = ({task}) => {
 
+    const editClickHandler = () => {
+
+    }
+
+    const deleteClickHandler = () => {
+
+    }
 
     return (
         <div
@@ -37,6 +51,13 @@ const TaskItem: FC<TaskItemProps> = ({task}) => {
 
             </div>
 
+            <div className={style.buttons}>
+                <img src={edit_button} alt={"edit"} className={style.edit_button} onClick={editClickHandler}/>
+                <img src={trash_button} alt={"delete"} className={style.trash_button} onClick={deleteClickHandler}/>
+
+            </div>
+
+
             <div className={style.description}>
                 {task.description}
             </div>
@@ -54,6 +75,11 @@ const TaskItem: FC<TaskItemProps> = ({task}) => {
             <div className={style.work_time}>
                 In work: {task.work_time}
             </div>
+
+            <NavLink to={``}>
+                <img src={open_button} alt={"open"} className={style.open_button}/>
+            </NavLink>
+
         </div>
     )
 }

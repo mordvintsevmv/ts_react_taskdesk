@@ -44,25 +44,14 @@
     font-weight: bold;
 }
 
-.button_add {
+.button_add img{
     position: fixed;
 
-    bottom: 0;
-    right: 0;
+    bottom: 20px;
+    right: 20px;
 
     cursor: pointer;
 
-}
-
-.button_plus {
-    position: fixed;
-
-    color:white;
-    font-weight: bold;
-    font-size: 24px;
-
-    bottom: 50px;
-    right: 70px;
-
-
+    width: 60px;
+    height: 60px;
 }

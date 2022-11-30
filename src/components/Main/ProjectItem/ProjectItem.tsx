@@ -4,11 +4,35 @@ import {IProject} from "../../../types/project";
 // @ts-ignore
 import style from "./ProjectItem.module.css"
 
+// @ts-ignore
+import trash_button from "../../../img/trash.png"
+
+// @ts-ignore
+import edit_button from "../../../img/edit.png"
+
+// @ts-ignore
+import open_button from "../../../img/open.png"
+import {NavLink} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {projectActionTypes} from "../../../store/reducers/projectReducer";
+
 interface ProjectItemProps {
     project: IProject
 }
 
 const ProjectItem: FC<ProjectItemProps> = ({project}) => {
+
+    const dispatch = useDispatch()
+
+    const deleteClickHandler = () => {
+        dispatch({type: projectActionTypes.DELETE_PROJECT, payload: project.id})
+    }
+
+    const editClickHandler = () => {
+    }
+
+
+
     return (
         <div className={style.project_wrapper}>
 
@@ -21,6 +45,13 @@ const ProjectItem: FC<ProjectItemProps> = ({project}) => {
                 <span className={style.title}>
                     {project.title}
                 </span>
+
+
+            </div>
+
+            <div className={style.buttons}>
+                <img src={edit_button} alt={"edit"} className={style.edit_button} onClick={editClickHandler}/>
+                <img src={trash_button} alt={"delete"} className={style.trash_button} onClick={deleteClickHandler}/>
 
             </div>
 
@@ -41,6 +72,11 @@ const ProjectItem: FC<ProjectItemProps> = ({project}) => {
             <div className={style.work_time}>
                 In work: {project.work_time}
             </div>
+
+            <NavLink to={`/project/${project.id}`}>
+                <img src={open_button} alt={"open"} className={style.open_button}/>
+            </NavLink>
+
         </div>
     )
 }

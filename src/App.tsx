@@ -7,6 +7,7 @@ import Project from "./components/Project/Project";
 import Header from "./components/Header/Header";
 
 const App = () => {
+
     return (
         <div className={style.app_wrapper}>
 

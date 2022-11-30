@@ -3,6 +3,9 @@ import {useParams} from "react-router-dom";
 
 // @ts-ignore
 import style from "./Project.module.css"
+// @ts-ignore
+import plus from "../../img/plus.png"
+
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {IColumn} from "../../types/column";
 import Column from "./Column/Column";
@@ -13,32 +16,17 @@ import DetailTask from "./DetailTask";
 const Project: FC = () => {
     const {projectID} = useParams()
 
-    const {tasks, loading, error} = useTypedSelector(state => state.taskReducer)
+    const {tasks} = useTypedSelector(state => state.taskReducer)
     const {projects} = useTypedSelector(state => state.projectReducer)
 
     const [addMode, setAddMode] = useState<boolean>(false)
     const [detailMode, setDetailMode] = useState(false)
 
-    const taskClickHandler = (taskID: number) => {
-        setDetailMode(true)
-    }
-
-
     const columns: IColumn[] = projects[Number(projectID)].columns
     const columnElements = columns.map(column =>
-            <Column key={column.id} id={column.id} title={column.title}
-                    taskIDs={column.taskIDs} tasks={tasks} />
-)
-
-
-    const onDragStart = (): void => {
-    }
-
-    const onDragEnd = (): void => {
-    }
-
-    const onDragUpdate = (): void => {
-    }
+        <Column key={column.id} id={column.id} title={column.title}
+                taskIDs={column.taskIDs} tasks={tasks}/>
+    )
 
     const addClickHandler = () => {
         setAddMode(true)
@@ -56,14 +44,7 @@ const Project: FC = () => {
                 {columnElements}
 
                 <div className={style.button_add} onClick={addClickHandler}>
-                    <svg>
-                        <circle r={"30"} cx="230" cy="100" fill={"blue"}/>
-                    </svg>
-
-                    <div className={style.button_plus}>
-                        +
-                    </div>
-
+                    <img src={plus} alt={"add_task"}/>
                 </div>
 
             </div>

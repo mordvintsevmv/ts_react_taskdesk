@@ -1,9 +1,19 @@
 import {combineReducers, legacy_createStore as createStore} from "redux";
 import {projectReducer} from "./reducers/projectReducer";
 import {taskReducer} from "./reducers/taskReducer";
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+
+const persistConfig = {
+    key: 'root',
+    storage,
+}
 
 const reducers = combineReducers({projectReducer, taskReducer})
 
-export type RootState = ReturnType<typeof reducers>
+const persistedReducer = persistReducer(persistConfig, reducers)
 
-export const store = createStore(reducers)
+export type RootState = ReturnType<typeof persistedReducer>
+
+export const store = createStore(persistedReducer)
+export const persistor = persistStore(store)

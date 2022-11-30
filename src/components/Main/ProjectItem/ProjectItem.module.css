@@ -1,38 +1,34 @@
-.project_wrapper{
+.project_wrapper {
     position: relative;
     padding: 10px;
     background-color: #FFFFFF;
     border-radius: 15px;
     box-shadow: 0 0 6px -3px;
 
-    cursor: pointer;
 }
 
-.project_wrapper:hover{
-    background-color: #dcdbdb;
-}
-
-.top_part{
+.top_part {
     position: absolute;
     top: 5px;
     left: 10px;
     height: 20px;
     overflow: hidden;
-
+    width: 230px;
 }
-.top_part .id{
+
+.top_part .id {
     font-size: 15px;
     font-weight: bold;
     color: #847577;
 }
 
-.top_part .title{
+.top_part .title {
     font-weight: bold;
     margin-left: 5px;
     color: black;
 }
 
-.description{
+.description {
     margin-top: 20px;
     margin-left: 25px;
     margin-bottom: 25px;
@@ -41,16 +37,17 @@
     font-size: 14px;
 }
 
-.work_time{
+.work_time {
     position: absolute;
-    right: 10px;
+
+    left: 45%;
     bottom: 5px;
 
     color: #b4b4b4;
     font-size: 10px;
 }
 
-.date{
+.date {
     position: absolute;
     left: 10px;
     bottom: 5px;
@@ -58,10 +55,47 @@
     font-size: 10px;
 }
 
-.date .date_created{
+.date .date_created {
     color: #87a58c;
 }
 
-.date .date_finished{
+.date .date_finished {
     color: #a57a7b;
+}
+
+.buttons {
+    position: absolute;
+    right: 5px;
+}
+
+img:hover {
+    filter: drop-shadow(1px 1px 1px);
+}
+
+img{
+    cursor: pointer;
+}
+
+.edit_button {
+    height: 15px;
+    width: 15px;
+
+    padding-right: 5px;
+}
+
+.trash_button {
+    height: 15px;
+    width: 15px;
+}
+
+.open_button {
+    position: absolute;
+
+    bottom: 5px;
+    right: 5px;
+
+    height: 20px;
+    width: 20px;
+
+    transform: scale(-1, 1);
 }
