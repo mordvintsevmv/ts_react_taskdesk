@@ -3,7 +3,6 @@ import {ITask} from "../types/task";
 export const tasksStart: ITask[] = [
     {
         id: 0,
-        parentID: null,
         projectID: 0,
         title: "My First Task",
         description: "Description for first task",
@@ -14,12 +13,20 @@ export const tasksStart: ITask[] = [
             id: 1,
             parentID: null,
             body: "Cool!"
-        }]
+        }],
+        subtasks: [{
+            id: 0,
+            body: "New"
+        },
+            {
+                id: 1,
+                body: "Task"
+            },
+        ]
     },
 
     {
         id: 1,
-        parentID: null,
         projectID: 0,
         title: "Buy Cards",
         description: "Buy cards in local store",
@@ -30,12 +37,20 @@ export const tasksStart: ITask[] = [
             id: 2,
             parentID: null,
             body: "Interesting!"
-        }]
+        }],
+        subtasks: [{
+            id: 2,
+            body: "Qwe"
+        },
+            {
+                id: 3,
+                body: "EWq"
+            },
+        ]
     },
 
     {
         id: 2,
-        parentID: null,
         projectID: 0,
         title: "Search for jobs",
         description: "Find some jobs for me",
@@ -48,6 +63,16 @@ export const tasksStart: ITask[] = [
                 parentID: null,
                 body: "I can help you!"
             },
+        ],
+        subtasks: [{
+            id: 5,
+            body: "ASD"
+        },
+            {
+                id: 6,
+                body: "AdDADA"
+            },
         ]
-    }
+    },
+
 ]

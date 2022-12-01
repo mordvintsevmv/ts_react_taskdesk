@@ -80,14 +80,14 @@ export const taskReducer = (state = initial_state, action: taskActions) => {
 
             const task: ITask = {
                 id: action.payload.id,
-                parentID: null,
                 projectID: action.payload.projectID,
                 title: action.payload.title,
                 description: action.payload.description,
                 date_created: new Date().toString(),
                 date_finished: null,
                 priority: action.payload.priority,
-                comments: null
+                comments: null,
+                subtasks: null
             }
 
             return {

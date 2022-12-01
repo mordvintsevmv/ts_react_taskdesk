@@ -8,8 +8,6 @@
 - [ ] Add Warning when deleting project
 
 - [ ] Add Edit Task feature
-- [ ] Add Delete Task feature
-- [ ] Add Create Task feature
 
 - [ ] Add Detail Mode for task
 - [ ] Add Creating comments for task feature
