@@ -1,4 +1,4 @@
-import {tasksReserve} from "../../data/tasks";
+import {tasksStart} from "../../data/tasks";
 import {ITask} from "../../types/task";
 
 /*
@@ -7,11 +7,13 @@ import {ITask} from "../../types/task";
 
  */
 interface taskState {
-    tasks: ITask[]
+    tasks: ITask[],
+    lastID: number
 }
 
 const initial_state: taskState = {
-    tasks: tasksReserve
+    tasks: tasksStart,
+    lastID: 2
 }
 
 
@@ -20,11 +22,12 @@ const initial_state: taskState = {
    ACTION TYPES
 
  */
-enum taskActionTypes {
+export enum taskActionTypes {
     FETCH_TASKS = "FETCH_TASKS",
     CREATE_TASK = "CREATE_TASK",
     DELETE_TASK = "DELETE_TASK",
-    EDIT_TASK = "EDIT_TASK"
+    EDIT_TASK = "EDIT_TASK",
+    FINISH_TASK = "FINISH_TASK"
 }
 
 
@@ -39,7 +42,7 @@ interface FetchTaskAction {
 
 interface CreateTaskAction {
     type: taskActionTypes.CREATE_TASK,
-    payload: ITask
+    payload: any
 }
 
 interface DeleteTaskAction {
@@ -52,7 +55,12 @@ interface EditTaskAction {
     payload: ITask
 }
 
-type taskActions = FetchTaskAction | CreateTaskAction | DeleteTaskAction | EditTaskAction
+interface FinishTaskAction {
+    type: taskActionTypes.FINISH_TASK,
+    payload: number
+}
+
+type taskActions = FetchTaskAction | CreateTaskAction | DeleteTaskAction | EditTaskAction | FinishTaskAction
 
 
 /*
@@ -69,12 +77,26 @@ export const taskReducer = (state = initial_state, action: taskActions) => {
         }
 
         case taskActionTypes.CREATE_TASK: {
+
+            const task: ITask = {
+                id: action.payload.id,
+                parentID: null,
+                projectID: action.payload.projectID,
+                title: action.payload.title,
+                description: action.payload.description,
+                date_created: new Date().toString(),
+                date_finished: null,
+                priority: action.payload.priority,
+                comments: null
+            }
+
             return {
                 ...state,
                 tasks: [
                     ...state.tasks,
-                    action.payload
-                ]
+                    task
+                ],
+                lastID: state.lastID + 1
             }
         }
 
@@ -82,6 +104,19 @@ export const taskReducer = (state = initial_state, action: taskActions) => {
             return {
                 ...state,
                 tasks: [...state.tasks.filter(task => task.id !== action.payload)]
+            }
+        }
+
+        case(taskActionTypes.FINISH_TASK): {
+            return {
+                ...state,
+                tasks: [...state.tasks.map(task => {
+                    if (task.id === action.payload) {
+                        task.date_finished = new Date().toString()
+                    }
+                    return task
+                })]
+
             }
         }
 

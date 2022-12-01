@@ -2,6 +2,7 @@ import React, {FC} from "react";
 import {Field, Form, Formik, FormikValues} from "formik";
 import {useDispatch} from "react-redux";
 import {projectActionTypes} from "../../../store/reducers/projectReducer";
+import {useTypedSelector} from "../../../hooks/useTypedSelector";
 
 interface ProjectFormProps {
     setAddMode:  React.Dispatch<React.SetStateAction<boolean>>,
@@ -10,10 +11,16 @@ interface ProjectFormProps {
 const ProjectForm: FC<ProjectFormProps> = ({setAddMode}) => {
 
     const dispatch = useDispatch()
+    const {lastID} = useTypedSelector(state => state.projectReducer)
 
 
     const submitHandle = (values: FormikValues) => {
-        dispatch({type: projectActionTypes.CREATE_PROJECT, payload: values})
+        const payload = {
+            id: lastID + 1,
+            title: values.title,
+            description: values.description
+        }
+        dispatch({type: projectActionTypes.CREATE_PROJECT, payload})
         setAddMode(false)
     }
 

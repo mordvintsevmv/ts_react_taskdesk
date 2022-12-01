@@ -11,7 +11,6 @@ import {IColumn} from "../../types/column";
 import Column from "./Column/Column";
 import Window from "../Window/Window";
 import TaskForm from "./TaskForm/TaskForm";
-import DetailTask from "./DetailTask";
 
 const Project: FC = () => {
     const {projectID} = useParams()
@@ -20,7 +19,6 @@ const Project: FC = () => {
     const {projects} = useTypedSelector(state => state.projectReducer)
 
     const [addMode, setAddMode] = useState<boolean>(false)
-    const [detailMode, setDetailMode] = useState<boolean>(false)
 
     const projectIndex: number = projects.findIndex(project => project.id === Number(projectID))
 
@@ -38,11 +36,9 @@ const Project: FC = () => {
         <div>
 
             {addMode && <Window children={<TaskForm/>} setWindow={setAddMode}/>}
-            {detailMode && <Window children={<DetailTask/>} setWindow={setDetailMode}/>}
-
 
             <div
-                className={(addMode || detailMode) ? `${style.desk_wrapper} ${style.desk_wrapper_blur}` : `${style.desk_wrapper}`}>
+                className={(addMode) ? `${style.desk_wrapper} ${style.desk_wrapper_blur}` : `${style.desk_wrapper}`}>
 
                 {columnElements}
 

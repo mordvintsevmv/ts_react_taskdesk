@@ -86,21 +86,15 @@ img:hover {
     filter: drop-shadow(1px 1px 1px);
 }
 
-img{
+.buttons img{
+    height: 15px;
+    width: 15px;
+
     cursor: pointer;
+
+    padding-left: 5px;
 }
 
-.edit_button {
-    height: 15px;
-    width: 15px;
-
-    padding-right: 5px;
-}
-
-.trash_button {
-    height: 15px;
-    width: 15px;
-}
 
 .open_button {
     position: absolute;

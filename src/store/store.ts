@@ -1,7 +1,7 @@
 import {combineReducers, legacy_createStore as createStore} from "redux";
 import {projectReducer} from "./reducers/projectReducer";
 import {taskReducer} from "./reducers/taskReducer";
-import { persistStore, persistReducer } from 'redux-persist'
+import {persistReducer, persistStore} from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
 const persistConfig = {

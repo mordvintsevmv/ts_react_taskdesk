@@ -8,9 +8,6 @@ import style from "./ProjectItem.module.css"
 import trash_button from "../../../img/trash.png"
 
 // @ts-ignore
-import edit_button from "../../../img/edit.png"
-
-// @ts-ignore
 import done_button from "../../../img/done.png"
 
 // @ts-ignore
@@ -32,13 +29,9 @@ const ProjectItem: FC<ProjectItemProps> = ({project}) => {
         dispatch({type: projectActionTypes.DELETE_PROJECT, payload: project.id})
     }
 
-    const editClickHandler = () => {
-    }
-
     const doneClickHandler = () => {
         dispatch({type: projectActionTypes.FINISH_PROJECT, payload: project.id})
     }
-
 
 
     return (
@@ -58,8 +51,8 @@ const ProjectItem: FC<ProjectItemProps> = ({project}) => {
             </div>
 
             <div className={style.buttons}>
-                {project.date_finished ? null : <img src={done_button} alt={"done"} className={style.done_button} onClick={doneClickHandler}/>}
-                {project.date_finished ? null : <img src={edit_button} alt={"edit"} className={style.edit_button} onClick={editClickHandler}/>}
+                {project.date_finished ? null :
+                    <img src={done_button} alt={"done"} className={style.done_button} onClick={doneClickHandler}/>}
                 <img src={trash_button} alt={"delete"} className={style.trash_button} onClick={deleteClickHandler}/>
 
             </div>

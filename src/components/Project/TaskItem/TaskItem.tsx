@@ -3,7 +3,7 @@ import {ITask} from "../../../types/task";
 
 // @ts-ignore
 import style from "./TaskItem.module.css"
-import {NavLink} from "react-router-dom";
+import {NavLink, useParams} from "react-router-dom";
 // @ts-ignore
 import open_button from "../../../img/open.png";
 // @ts-ignore
@@ -11,20 +11,34 @@ import edit_button from "../../../img/edit.png";
 // @ts-ignore
 import trash_button from "../../../img/trash.png";
 import {getDateCustom, getWorkTime} from "../../../functions/dateFunctions";
+// @ts-ignore
+import done_button from "../../../img/done.png";
+import {taskActionTypes} from "../../../store/reducers/taskReducer";
+import {useDispatch} from "react-redux";
+import {projectActionTypes} from "../../../store/reducers/projectReducer";
 
 interface TaskItemProps {
     task: ITask,
 }
 
-
 const TaskItem: FC<TaskItemProps> = ({task}) => {
+
+    const {projectID} = useParams()
+
+    const dispatch = useDispatch()
 
     const editClickHandler = () => {
 
     }
 
     const deleteClickHandler = () => {
+        dispatch({type: taskActionTypes.DELETE_TASK, payload: task.id})
+        dispatch({type: projectActionTypes.DELETE_TASK, payload: {taskID: task.id, projectID: Number(projectID)}})
 
+    }
+
+    const doneClickHandler = () => {
+        dispatch({type: taskActionTypes.FINISH_TASK, payload: task.id})
     }
 
     return (
@@ -51,7 +65,10 @@ const TaskItem: FC<TaskItemProps> = ({task}) => {
             </div>
 
             <div className={style.buttons}>
-                <img src={edit_button} alt={"edit"} className={style.edit_button} onClick={editClickHandler}/>
+                {task.date_finished ? null :
+                    <img src={done_button} alt={"done"} className={style.done_button} onClick={doneClickHandler}/>}
+                {task.date_finished ? null :
+                    <img src={edit_button} alt={"edit"} className={style.edit_button} onClick={editClickHandler}/>}
                 <img src={trash_button} alt={"delete"} className={style.trash_button} onClick={deleteClickHandler}/>
 
             </div>

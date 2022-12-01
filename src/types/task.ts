@@ -9,12 +9,5 @@ export interface ITask {
     date_created: string,
     date_finished: string | null,
     priority: number,
-    status: status,
-    comments: IComment[]
-}
-
-export enum status {
-    "Queue",
-    "Development",
-    "Done"
+    comments: IComment[] | null
 }

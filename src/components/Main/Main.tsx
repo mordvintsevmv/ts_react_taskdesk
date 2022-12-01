@@ -12,6 +12,8 @@ const Main: FC = () => {
 
     const {projects} = useTypedSelector(state => state.projectReducer)
 
+    console.log(projects)
+
     const [addMode, setAddMode] = useState<boolean>(false)
 
     const projectElements = projects.map(project =>

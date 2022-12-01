@@ -1,5 +1,5 @@
 import {IProject} from "../../types/project";
-import {projectsReserve} from "../../data/projects";
+import {projectsStart} from "../../data/projects";
 
 /*
 
@@ -7,11 +7,13 @@ import {projectsReserve} from "../../data/projects";
 
  */
 interface projectState {
-    projects: IProject[]
+    projects: IProject[],
+    lastID: number
 }
 
 const initial_state: projectState = {
-    projects: projectsReserve
+    projects: projectsStart,
+    lastID: 0
 }
 
 
@@ -25,7 +27,9 @@ export enum projectActionTypes {
     CREATE_PROJECT = "CREATE_PROJECT",
     DELETE_PROJECT = "DELETE_PROJECT",
     EDIT_PROJECT = "EDIT_PROJECT",
-    FINISH_PROJECT = "FINISH_PROJECT"
+    FINISH_PROJECT = "FINISH_PROJECT",
+    ADD_TASK = "ADD_TASK",
+    DELETE_TASK = "DELETE_TASK"
 }
 
 interface FetchProjectAction {
@@ -52,7 +56,17 @@ interface FinishProjectAction {
     payload: number
 }
 
-export type projectActions = FetchProjectAction | CreateProjectAction | DeleteProjectAction | EditProjectAction | FinishProjectAction
+interface AddTaskAction {
+    type: projectActionTypes.ADD_TASK,
+    payload: any
+}
+
+interface DeleteTaskAction {
+    type: projectActionTypes.DELETE_TASK,
+    payload: any
+}
+
+export type projectActions = FetchProjectAction | CreateProjectAction | DeleteProjectAction | EditProjectAction | FinishProjectAction | AddTaskAction | DeleteTaskAction
 
 
 /*
@@ -72,9 +86,8 @@ export const projectReducer = (state = initial_state, action: projectActions) =>
 
         case(projectActionTypes.CREATE_PROJECT): {
 
-            const maxId = state.projects.reduce((max, item) => item.id > max ? item.id : max, 0);
             const project: IProject = {
-                id: maxId+1,
+                id: action.payload.id,
                 title: action.payload.title,
                 description: action.payload.description,
                 date_created: (new Date()).toString(),
@@ -103,7 +116,8 @@ export const projectReducer = (state = initial_state, action: projectActions) =>
                 projects: [
                     ...state.projects,
                     project
-                ]
+                ],
+                lastID: state.lastID+1
             }
         }
 
@@ -115,10 +129,6 @@ export const projectReducer = (state = initial_state, action: projectActions) =>
         }
 
         case(projectActionTypes.FINISH_PROJECT): {
-            const projectIndex = state.projects.findIndex(project => project.id === action.payload)
-            const project = state.projects[projectIndex]
-            project.date_finished = (new Date()).toString()
-
             return {
                 ...state,
                 projects: [...state.projects.map(project => {
@@ -143,6 +153,37 @@ export const projectReducer = (state = initial_state, action: projectActions) =>
                     }
                 })]
             }
+        }
+
+        case(projectActionTypes.ADD_TASK):{
+            return {
+                ...state,
+                projects: [...state.projects.map(project => {
+                    if (project.id === action.payload.projectID) {
+                        project.columns[0].taskIDs.push(action.payload.taskID)
+                        return project
+                    } else {
+                        return project
+                    }
+                })]
+            }
+        }
+
+        case(projectActionTypes.DELETE_TASK): {
+            return {
+                ...state,
+                projects: [...state.projects.map(project => {
+                    if (project.id === action.payload.projectID) {
+                        project.columns[0].taskIDs = project.columns[0].taskIDs.filter(taskID => taskID !== action.payload.taskID)
+                        project.columns[1].taskIDs = project.columns[1].taskIDs.filter(taskID => taskID !== action.payload.taskID)
+                        project.columns[2].taskIDs = project.columns[2].taskIDs.filter(taskID => taskID !== action.payload.taskID)
+                        return project
+                    } else {
+                        return project
+                    }
+                })]
+            }
+
         }
 
         default:
